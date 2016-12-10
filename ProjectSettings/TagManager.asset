@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Character
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -13,8 +15,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Rooms
+  - Characters
   - 
   - 
   - 
@@ -40,4 +42,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Rooms
+    uniqueID: 3773095681
+    locked: 0
+  - name: Characters
+    uniqueID: 2060128219
+    locked: 0
+  - name: UI
+    uniqueID: 3687099687
     locked: 0
