@@ -15,6 +15,8 @@ public class Room : MonoBehaviour
     List<Character> chars;
     Dictionary<Need, int> effects;
 
+    bool isSelected = false;
+
     Game game;
     
 	void Awake ()
@@ -102,12 +104,23 @@ public class Room : MonoBehaviour
     public void Click()
     {
         Debug.Log("Toggle room select");
+
+        isSelected = true;
+        this.gameObject.transform.localScale = new Vector3(1.15f, 1.15f, 1f);
+    }
+
+    public void Deselect ()
+    {
+        isSelected = false;
+        this.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     public void MouseOver()
     {
         //Debug.Log("Room over");
 
+        if (isSelected)
+            return;
         this.gameObject.transform.localScale = new Vector3(1.05f, 1.05f, 1f);
     }
 
@@ -115,6 +128,8 @@ public class Room : MonoBehaviour
     {
         //Debug.Log("Room out");
 
+        if (isSelected)
+            return;
         this.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 

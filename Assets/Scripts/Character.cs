@@ -6,7 +6,7 @@ using System;
 
 public class Character : MonoBehaviour
 {
-    
+
     Dictionary<Need, int> needs;
     Dictionary<Need, Image> pies;
     int needMax;
@@ -63,6 +63,11 @@ public class Character : MonoBehaviour
     {
         //Debug.Log("Character over");
 
+        this.gameObject.transform.localScale = new Vector3(0.9f, 0.9f, 1f);
+
+        canvas.transform.position = this.gameObject.transform.position;
+        canvas.transform.Translate(0f, 1.5f, 0f);
+
         foreach (KeyValuePair<Need, Image> kvp in pies)
         {
             GameObject parent = kvp.Value.gameObject.transform.parent.gameObject;
@@ -73,6 +78,8 @@ public class Character : MonoBehaviour
     public void MouseOut ()
     {
         //Debug.Log("Character out");
+
+        this.gameObject.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
 
         foreach (KeyValuePair<Need, Image> kvp in pies)
         {

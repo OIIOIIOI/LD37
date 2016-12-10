@@ -17,6 +17,11 @@ public class Game : MonoBehaviour
     public Color livingroomColor;
     public Color kitchenColor;
 
+    public Color firstColor;
+    public Color secondColor;
+    public Color thirdColor;
+    public Color fourthColor;
+
     List<Room> rooms;
 
     List<GameObject> underMouse;
@@ -35,6 +40,7 @@ public class Game : MonoBehaviour
 
         // First room and character
         characterObject = Instantiate(characterPrefab);
+        characterObject.GetComponent<SpriteRenderer>().color = firstColor;
         character = characterObject.GetComponent<Character>();
 
         roomObject = Instantiate(roomPrefab);
@@ -46,6 +52,7 @@ public class Game : MonoBehaviour
         // Second room and character
         characterObject = Instantiate(characterPrefab);
         characterObject.transform.Translate(new Vector3(4.5f, 0f, 0f));
+        characterObject.GetComponent<SpriteRenderer>().color = secondColor;
         character = characterObject.GetComponent<Character>();
 
         roomObject = Instantiate(roomPrefab);
@@ -58,6 +65,7 @@ public class Game : MonoBehaviour
         // Third room and character
         characterObject = Instantiate(characterPrefab);
         characterObject.transform.Translate(new Vector3(0f, 4.5f, 0f));
+        characterObject.GetComponent<SpriteRenderer>().color = thirdColor;
         character = characterObject.GetComponent<Character>();
 
         roomObject = Instantiate(roomPrefab);
@@ -70,6 +78,7 @@ public class Game : MonoBehaviour
         // Fourth room and character
         characterObject = Instantiate(characterPrefab);
         characterObject.transform.Translate(new Vector3(4.5f, 4.5f, 0f));
+        characterObject.GetComponent<SpriteRenderer>().color = fourthColor;
         character = characterObject.GetComponent<Character>();
 
         roomObject = Instantiate(roomPrefab);
@@ -110,7 +119,7 @@ public class Game : MonoBehaviour
                     character.MouseOver();
                 }
                 // Register click if needed
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && clickTarget == null)
                 {
                     clickTarget = go;
                 }
@@ -127,7 +136,7 @@ public class Game : MonoBehaviour
                     room.MouseOver();
                 }
                 // Register click if needed
-                if (Input.GetMouseButtonDown(0) && clickTarget == null)
+                if (Input.GetMouseButtonDown(0))
                 {
                     clickTarget = go;
                 }
@@ -202,6 +211,9 @@ public class Game : MonoBehaviour
         roomB.gameObject.transform.position = posA;
 
         roomA.SwapChars(roomB);
+
+        roomA.Deselect();
+        roomB.Deselect();
     }
 
     public Color GetColor (Need need)
