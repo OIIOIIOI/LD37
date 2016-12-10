@@ -1,19 +1,43 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Room : MonoBehaviour
 {
 
-    Game game;
-
+    [HideInInspector]
     public RoomType type;
+
+    List<Character> chars;
+
+    Game game;
     
-	void Start ()
+	void Awake ()
     {
         game = GameObject.Find("Game").GetComponent<Game>();
-	}
-	
-	void Update ()
+
+        chars = new List<Character>();
+    }
+
+    public void Init (RoomType t)
+    {
+        this.type = t;
+    }
+
+    public void AddChar(Character c)
+    {
+        if (chars.Contains(c))
+            return;
+        chars.Add(c);
+    }
+
+    public void RemoveChar(Character c)
+    {
+        if (!chars.Contains(c))
+            return;
+        chars.Remove(c);
+    }
+
+    void Update ()
     {
 	
 	}
