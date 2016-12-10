@@ -14,7 +14,7 @@ public class Game : MonoBehaviour
 
         GameObject roomObject = Instantiate(roomPrefab);
         Room room = roomObject.GetComponent<Room>();
-        room.Init(RoomType.Bathroom);
+        room.Init(RoomType.Kitchen);
         room.AddChar(character);
 	}
 	

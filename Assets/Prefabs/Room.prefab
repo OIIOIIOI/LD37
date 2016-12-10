@@ -52,6 +52,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d5353f5a00be648ba1c138071fdec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bathroomSprite: {fileID: 21300000, guid: 80eacfb93b7b42941a7d24cbe1a64c16, type: 3}
+  bedroomSprite: {fileID: 21300002, guid: 80eacfb93b7b42941a7d24cbe1a64c16, type: 3}
+  livingroomSprite: {fileID: 21300004, guid: 80eacfb93b7b42941a7d24cbe1a64c16, type: 3}
+  kitchenSprite: {fileID: 21300006, guid: 80eacfb93b7b42941a7d24cbe1a64c16, type: 3}
   type: 2
 --- !u!212 &212000013143657858
 SpriteRenderer:
